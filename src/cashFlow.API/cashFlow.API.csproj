@@ -8,6 +8,7 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.4"/>
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.3" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0"/>
     </ItemGroup>
 
@@ -16,6 +17,10 @@
       <ProjectReference Include="..\cashFlow.Communication\cashFlow.Communication.csproj" />
       <ProjectReference Include="..\cashFlow.Exception\cashFlow.Exception.csproj" />
       <ProjectReference Include="..\cashFlow.Infrastructure\cashFlow.Infrastructure.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Controllers\" />
     </ItemGroup>
 
 </Project>
