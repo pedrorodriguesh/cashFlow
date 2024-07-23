@@ -21,10 +21,5 @@ public class CreateExpenseUseCase
 
         if (result.IsValid) return;
         var errorMessages = result.Errors.Select(f => f.ErrorMessage).ToList();
-
-        foreach (var error in errorMessages)
-        {
-            throw new ArgumentException(error);
-        }
     }
 }

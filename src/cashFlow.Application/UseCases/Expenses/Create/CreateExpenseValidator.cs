@@ -1,4 +1,3 @@
-using cashFlow.Communication.Enums;
 using cashFlow.Communication.Requests;
 using FluentValidation;
 
