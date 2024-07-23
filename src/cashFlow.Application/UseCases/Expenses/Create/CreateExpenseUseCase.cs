@@ -15,13 +15,15 @@ public class CreateExpenseUseCase
     }
 
 
+    // auxiliary function
     private static void Validate(RequestCreateExpenseJson request)
     {
+        // using FluentValidation to validate the request
         var validator = new CreateExpenseValidator();
         var result = validator.Validate(request);
 
         if (result.IsValid) return;
-        var errorMessages = result.Errors.Select(f => f.ErrorMessage).ToList();
+        var errorMessages = result.Errors.Select(e => e.ErrorMessage).ToList();
 
         throw new ErrorOnValidationException(errorMessages);
     }

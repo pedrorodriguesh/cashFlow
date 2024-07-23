@@ -5,8 +5,10 @@ using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace cashFlow.API.Filters;
 
+// This filter will catch every exception thrown in the application and return a response with the error
 public class ExceptionFilter : IExceptionFilter
 {
+    // main method
     public void OnException(ExceptionContext context)
     {
         if (context.Exception is CashFlowException)
@@ -19,7 +21,7 @@ public class ExceptionFilter : IExceptionFilter
         }
     }
 
-    private void HandleProjectException(ExceptionContext context)
+    private static void HandleProjectException(ExceptionContext context)
     {
         if (context.Exception is ErrorOnValidationException exception)
         {
@@ -37,7 +39,8 @@ public class ExceptionFilter : IExceptionFilter
         }
     }
     
-    private void ThrowUnknownError(ExceptionContext context)
+    // generic error
+    private static void ThrowUnknownError(ExceptionContext context)
     {
         var errorResponse = new ResponseErrorJson("unknown error");
 
