@@ -1,6 +1,7 @@
 using cashFlow.Communication.Enums;
 using cashFlow.Communication.Requests;
 using cashFlow.Communication.Responses;
+using cashFlow.Exception.ExceptionsBase;
 
 namespace cashFlow.Application.UseCases.Expenses.Create;
 
@@ -21,5 +22,7 @@ public class CreateExpenseUseCase
 
         if (result.IsValid) return;
         var errorMessages = result.Errors.Select(f => f.ErrorMessage).ToList();
+
+        throw new ErrorOnValidationException(errorMessages);
     }
 }
