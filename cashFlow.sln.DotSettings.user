@@ -2,5 +2,11 @@
 	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;
   &lt;Assembly Path="/Users/pedrohenriquerodrigues/.nuget/packages/fluentvalidation/11.9.2/lib/net8.0/FluentValidation.dll" /&gt;
 &lt;/AssemblyExplorer&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=7714b418_002D5495_002D462f_002Da2db_002D40c40c611234/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Success" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::A011CBD3-4D96-496E-9C79-491A87800884::net8.0::Validators.Test.Expenses.Create.CreateExpenseValidatorTests.Success&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=src_002FcashFlow_002EException_002FResourceErrorMessages/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/Initialized/@EntryValue">True</s:Boolean></wpf:ResourceDictionary>
