@@ -1,4 +1,5 @@
 using cashFlow.API.Filters;
+using cashFlow.API.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +21,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseMiddleware<CultureMiddleware>(); // setting middleware culture
 
 app.MapControllers();
 
