@@ -6,7 +6,7 @@ namespace CommonTestsUtils.Requests;
 
 public class RequestCreateExpenseJsonBuilder
 {
-    public RequestCreateExpenseJson Build()
+    public static RequestCreateExpenseJson Build()
     {
         return new Faker<RequestCreateExpenseJson>()
             .RuleFor(r => r.Title, faker => faker.Commerce.ProductName())
