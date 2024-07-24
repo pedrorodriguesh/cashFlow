@@ -1,5 +1,7 @@
 using cashFlow.Communication.Responses;
+using cashFlow.Exception;
 using cashFlow.Exception.ExceptionsBase;
+using Elfie.Serialization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
@@ -42,7 +44,7 @@ public class ExceptionFilter : IExceptionFilter
     // generic error
     private static void ThrowUnknownError(ExceptionContext context)
     {
-        var errorResponse = new ResponseErrorJson("unknown error");
+        var errorResponse = new ResponseErrorJson(ResourceErrorMessages.UNKNOWN_ERROR);
 
         context.HttpContext.Response.StatusCode = StatusCodes.Status500InternalServerError;
         context.Result = new ObjectResult(errorResponse);
