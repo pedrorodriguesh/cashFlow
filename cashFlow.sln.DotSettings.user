@@ -6,6 +6,10 @@
   &lt;TestAncestor&gt;
     &lt;TestId&gt;xUnit::A011CBD3-4D96-496E-9C79-491A87800884::net8.0::Validators.Test.Expenses.Create.CreateExpenseValidatorTests.Success&lt;/TestId&gt;
     &lt;TestId&gt;xUnit::A011CBD3-4D96-496E-9C79-491A87800884::net8.0::Validators.Test.Expenses.Create.CreateExpenseValidatorTests.Error_Title_Empty&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::A011CBD3-4D96-496E-9C79-491A87800884::net8.0::Validators.Test.Expenses.Create.CreateExpenseValidatorTests.Error_Date_Future&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::A011CBD3-4D96-496E-9C79-491A87800884::net8.0::Validators.Test.Expenses.Create.CreateExpenseValidatorTests.Error_Payment_Type_Invalid&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::A011CBD3-4D96-496E-9C79-491A87800884::net8.0::Validators.Test.Expenses.Create.CreateExpenseValidatorTests.Error_Amount_Less_Than_Zero&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::A011CBD3-4D96-496E-9C79-491A87800884::net8.0::Validators.Test.Expenses.Create.CreateExpenseValidatorTests.Error_Amount_Invalid&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
 	
