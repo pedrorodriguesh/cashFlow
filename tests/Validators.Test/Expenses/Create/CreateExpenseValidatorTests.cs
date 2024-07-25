@@ -7,6 +7,7 @@ using FluentAssertions;
 
 namespace Validators.Test.Expenses.Create;
 
+// unit tests
 public class CreateExpenseValidatorTests
 {
     [Fact]
@@ -90,6 +91,7 @@ public class CreateExpenseValidatorTests
         var result = validator.Validate(request);
 
         //Assert
+        // Using FluentAssertions package to make the test more readable
         result.IsValid.Should().BeFalse();
         result.Errors.Should()
             .ContainSingle().And.Contain(e => e.ErrorMessage.Equals(ResourceErrorMessages.AMOUNT_MUST_BE_GREATER_THAN_ZERO));

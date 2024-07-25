@@ -6,9 +6,10 @@ namespace CommonTestsUtils.Requests;
 
 public class RequestCreateExpenseJsonBuilder
 {
+    // Creating fake data with Bogus package
     public static RequestCreateExpenseJson Build()
     {
-        return new Faker<RequestCreateExpenseJson>()
+        return new Faker<RequestCreateExpenseJson>() // fluent sintaxe
             .RuleFor(r => r.Title, faker => faker.Commerce.ProductName())
             .RuleFor(r => r.Description, faker => faker.Commerce.ProductDescription())
             .RuleFor(r => r.Date, faker => faker.Date.Past())
