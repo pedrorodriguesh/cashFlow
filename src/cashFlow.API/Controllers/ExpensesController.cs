@@ -9,11 +9,10 @@ namespace cashFlow.API.Controllers
     [ApiController]
     public class ExpensesController : ControllerBase
     {
-
         [HttpPost]
         public IActionResult Create([FromBody] RequestCreateExpenseJson request)
         {
-            // using filterException we dont need to use try catch block here, the filter will catch every exceptions and return a response with the error
+            // using filterException we don't need to use try catch block here, the filter will catch every exceptions and return a response with the error
             var useCase = new CreateExpenseUseCase();
 
             var response = useCase.Execute(request);

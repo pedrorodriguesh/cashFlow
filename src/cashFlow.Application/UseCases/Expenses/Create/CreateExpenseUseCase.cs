@@ -15,7 +15,7 @@ public class CreateExpenseUseCase
     }
 
 
-    // auxiliary function
+    // auxiliary function to validate the request
     private static void Validate(RequestCreateExpenseJson request)
     {
         // using FluentValidation to validate the request
