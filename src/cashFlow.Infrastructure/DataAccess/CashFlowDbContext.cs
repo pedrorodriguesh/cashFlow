@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 namespace cashFlow.Infrastructure.DataAccess;
 
 // dbContext class to interact with the database using Entity Framework Core
-public class CashFlowDbContext : DbContext
+internal class CashFlowDbContext : DbContext
 {
     public DbSet<Expense> Expenses { get; set; } // Here its defined the table to be used in the database
 
