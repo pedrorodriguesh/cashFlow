@@ -2,11 +2,12 @@ using cashFlow.Communication.Requests;
 using cashFlow.Communication.Responses;
 using cashFlow.Domain.Entities;
 using cashFlow.Domain.Entities.Enums;
+using cashFlow.Domain.Repositories.Expenses;
 using cashFlow.Exception.ExceptionsBase;
 
 namespace cashFlow.Application.UseCases.Expenses.Create;
 
-public class CreateExpenseUseCase
+public class CreateExpenseUseCase(IExpensesRepository expensesRepository) : ICreateExpenseUseCase
 {
     public ResponseCreatedExpenseJson Execute(RequestCreateExpenseJson request)
     {
@@ -20,6 +21,8 @@ public class CreateExpenseUseCase
             Title = request.Title,
             PaymentType = (PaymentType)request.PaymentType,
         };
+        
+        expensesRepository.Create(entity);
         
         return new ResponseCreatedExpenseJson();
     }
