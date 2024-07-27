@@ -2,12 +2,13 @@ using cashFlow.Communication.Requests;
 using cashFlow.Communication.Responses;
 using cashFlow.Domain.Entities;
 using cashFlow.Domain.Entities.Enums;
+using cashFlow.Domain.Repositories;
 using cashFlow.Domain.Repositories.Expenses;
 using cashFlow.Exception.ExceptionsBase;
 
 namespace cashFlow.Application.UseCases.Expenses.Create;
 
-public class CreateExpenseUseCase(IExpensesRepository expensesRepository) : ICreateExpenseUseCase
+public class CreateExpenseUseCase(IExpensesRepository expensesRepository, IUnitOfWork unitOfWork) : ICreateExpenseUseCase
 {
     public ResponseCreatedExpenseJson Execute(RequestCreateExpenseJson request)
     {
@@ -23,6 +24,7 @@ public class CreateExpenseUseCase(IExpensesRepository expensesRepository) : ICre
         };
         
         expensesRepository.Create(entity);
+        unitOfWork.Commit();
         
         return new ResponseCreatedExpenseJson();
     }

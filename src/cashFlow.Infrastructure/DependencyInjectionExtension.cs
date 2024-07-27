@@ -1,3 +1,4 @@
+using cashFlow.Domain.Repositories;
 using cashFlow.Domain.Repositories.Expenses;
 using cashFlow.Infrastructure.DataAccess;
 using cashFlow.Infrastructure.DataAccess.Repositories;
@@ -17,6 +18,7 @@ public static class DependencyInjectionExtension
 
     private static void AddRepositories(IServiceCollection servicesCollection)
     {
+        servicesCollection.AddScoped<IUnitOfWork, UnitOfWork>();
         servicesCollection.AddScoped<IExpensesRepository, ExpensesRepository>();
     }
     private static void AddDbContext(IServiceCollection servicesCollection, IConfiguration configuration)
