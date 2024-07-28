@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace cashFlow.API.Controllers
 {
+    // The API project is the front door of the application, here we have the controllers that will receive the requests and call the use cases
     [Route("api/[controller]")]
     [ApiController]
     public class ExpensesController : ControllerBase
