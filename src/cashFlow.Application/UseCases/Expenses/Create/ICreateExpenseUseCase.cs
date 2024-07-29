@@ -5,5 +5,5 @@ namespace cashFlow.Application.UseCases.Expenses.Create;
 
 public interface ICreateExpenseUseCase
 {
-    ResponseCreatedExpenseJson Execute(RequestCreateExpenseJson request);
+    Task<ResponseCreatedExpenseJson> Execute(RequestCreateExpenseJson request);
 }

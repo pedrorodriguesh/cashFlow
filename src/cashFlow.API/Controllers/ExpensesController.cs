@@ -10,12 +10,12 @@ namespace cashFlow.API.Controllers
     public class ExpensesController : ControllerBase
     {
         [HttpPost]
-        public IActionResult Create(
+        public async Task<IActionResult>  Create(
             [FromServices] ICreateExpenseUseCase useCase,
             [FromBody] RequestCreateExpenseJson request)
         {
             // using filterException we don't need to use try catch block here, the filter will catch every exception and return a response with the error
-            var response = useCase.Execute(request);
+            var response = await useCase.Execute(request);
 
             return Created(string.Empty, response);
         }

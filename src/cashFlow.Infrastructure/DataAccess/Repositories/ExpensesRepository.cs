@@ -5,8 +5,8 @@ namespace cashFlow.Infrastructure.DataAccess.Repositories;
 
 internal class ExpensesRepository(CashFlowDbContext dbContext) : IExpensesRepository
 {
-    public void Create(Expense expense)
+    public async Task Create(Expense expense)
     {
-        dbContext.Expenses.Add(expense);
+        await dbContext.Expenses.AddAsync(expense);
     }
 }

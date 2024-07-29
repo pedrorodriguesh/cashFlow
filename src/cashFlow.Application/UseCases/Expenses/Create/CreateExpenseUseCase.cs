@@ -10,7 +10,7 @@ namespace cashFlow.Application.UseCases.Expenses.Create;
 
 public class CreateExpenseUseCase(IExpensesRepository expensesRepository, IUnitOfWork unitOfWork) : ICreateExpenseUseCase
 {
-    public ResponseCreatedExpenseJson Execute(RequestCreateExpenseJson request)
+    public async Task<ResponseCreatedExpenseJson>  Execute(RequestCreateExpenseJson request)
     {
         Validate(request);
 
@@ -23,8 +23,8 @@ public class CreateExpenseUseCase(IExpensesRepository expensesRepository, IUnitO
             PaymentType = (PaymentType)request.PaymentType,
         };
         
-        expensesRepository.Create(entity);
-        unitOfWork.Commit();
+        await expensesRepository.Create(entity);
+        await unitOfWork.Commit();
         
         return new ResponseCreatedExpenseJson
         {
