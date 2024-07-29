@@ -26,7 +26,10 @@ public class CreateExpenseUseCase(IExpensesRepository expensesRepository, IUnitO
         expensesRepository.Create(entity);
         unitOfWork.Commit();
         
-        return new ResponseCreatedExpenseJson();
+        return new ResponseCreatedExpenseJson
+        {
+            Title = request.Title
+        };
     }
 
 
