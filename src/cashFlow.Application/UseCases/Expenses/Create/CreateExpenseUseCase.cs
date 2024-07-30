@@ -1,35 +1,27 @@
+using AutoMapper;
 using cashFlow.Communication.Requests;
 using cashFlow.Communication.Responses;
 using cashFlow.Domain.Entities;
-using cashFlow.Domain.Entities.Enums;
 using cashFlow.Domain.Repositories;
 using cashFlow.Domain.Repositories.Expenses;
 using cashFlow.Exception.ExceptionsBase;
 
 namespace cashFlow.Application.UseCases.Expenses.Create;
 
-public class CreateExpenseUseCase(IExpensesRepository expensesRepository, IUnitOfWork unitOfWork) : ICreateExpenseUseCase
+public class CreateExpenseUseCase(
+    IExpensesRepository expensesRepository, IUnitOfWork unitOfWork, IMapper mapper) : ICreateExpenseUseCase
 {
     public async Task<ResponseCreatedExpenseJson>  Execute(RequestCreateExpenseJson request)
     {
         Validate(request);
 
-        var entity = new Expense
-        {
-            Amount = request.Amount,
-            Date = request.Date,
-            Description = request.Description,
-            Title = request.Title,
-            PaymentType = (PaymentType)request.PaymentType,
-        };
+        // using mapper package.
+        var entity = mapper.Map<Expense>(request);
         
         await expensesRepository.Create(entity);
         await unitOfWork.Commit();
         
-        return new ResponseCreatedExpenseJson
-        {
-            Title = request.Title
-        };
+        return mapper.Map<ResponseCreatedExpenseJson>(entity);
     }
 
 
