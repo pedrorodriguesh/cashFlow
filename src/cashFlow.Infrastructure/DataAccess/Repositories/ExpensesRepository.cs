@@ -13,6 +13,7 @@ internal class ExpensesRepository(CashFlowDbContext dbContext) : IExpensesReposi
 
     public async Task<List<Expense>> GetAll()
     {
-        return await dbContext.Expenses.ToListAsync();
+        // AsNoTracking improves performance by not tracking changes to the entities
+        return await dbContext.Expenses.AsNoTracking().ToListAsync();
     }
 }
