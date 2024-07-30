@@ -1,6 +1,9 @@
 using cashFlow.Application.UseCases.Expenses.Create;
+using cashFlow.Application.UseCases.Expenses.GetAll;
 using cashFlow.Communication.Requests;
+using cashFlow.Communication.Responses;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace cashFlow.API.Controllers
 {
@@ -10,6 +13,8 @@ namespace cashFlow.API.Controllers
     public class ExpensesController : ControllerBase
     {
         [HttpPost]
+        [ProducesResponseType(typeof(ResponseCreatedExpenseJson), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult>  Create(
             [FromServices] ICreateExpenseUseCase useCase,
             [FromBody] RequestCreateExpenseJson request)
@@ -19,5 +24,19 @@ namespace cashFlow.API.Controllers
 
             return Created(string.Empty, response);
         }
+        
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> GetAllExpenses([FromServices] IGetAllExpensesUseCase useCase)
+        {
+            var response = await useCase.Execute();
+            
+            if (response.Expenses.Count != 0) return Ok(response);
+
+            return NoContent();
+        }
     }
+    
+    
 }
