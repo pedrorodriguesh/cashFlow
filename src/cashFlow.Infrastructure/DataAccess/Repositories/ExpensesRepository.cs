@@ -16,4 +16,9 @@ internal class ExpensesRepository(CashFlowDbContext dbContext) : IExpensesReposi
         // AsNoTracking improves performance by not tracking changes to the entities
         return await dbContext.Expenses.AsNoTracking().ToListAsync();
     }
+    
+    public async Task<Expense?> GetExpenseById(long id)
+    {
+        return await dbContext.Expenses.AsNoTracking().FirstOrDefaultAsync(expense =>  expense.Id == id) ;
+    }
 }
