@@ -9,7 +9,7 @@ using cashFlow.Exception.ExceptionsBase;
 namespace cashFlow.Application.UseCases.Expenses.Create;
 
 public class CreateExpenseUseCase(
-    IExpensesRepository expensesRepository, IUnitOfWork unitOfWork, IMapper mapper) : ICreateExpenseUseCase
+    IExpensesWriteOnlyRepository expensesRepository, IUnitOfWork unitOfWork, IMapper mapper) : ICreateExpenseUseCase
 {
     public async Task<ResponseCreatedExpenseJson>  Execute(RequestCreateExpenseJson request)
     {

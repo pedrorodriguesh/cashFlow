@@ -4,7 +4,7 @@ using cashFlow.Domain.Repositories.Expenses;
 
 namespace cashFlow.Application.UseCases.Expenses.GetAll;
 
-public class GetAllExpensesUseCase(IExpensesRepository expensesRepository, IMapper mapper) : IGetAllExpensesUseCase
+public class GetAllExpensesUseCase(IExpensesReadOnlyRepository expensesRepository, IMapper mapper) : IGetAllExpensesUseCase
 {
 
     public async Task<ResponseExpensesJson>  Execute()

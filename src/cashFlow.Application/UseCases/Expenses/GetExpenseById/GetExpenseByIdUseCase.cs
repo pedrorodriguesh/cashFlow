@@ -6,7 +6,7 @@ using cashFlow.Exception.ExceptionsBase;
 
 namespace cashFlow.Application.UseCases.Expenses.GetExpenseById;
 
-public class GetExpenseByIdUseCase(IExpensesRepository expensesRepository, IMapper mapper) : IGetExpenseByIdUseCase
+public class GetExpenseByIdUseCase(IExpensesReadOnlyRepository expensesRepository, IMapper mapper) : IGetExpenseByIdUseCase
 {
     public async Task<Expense> Execute(long id)
     {
