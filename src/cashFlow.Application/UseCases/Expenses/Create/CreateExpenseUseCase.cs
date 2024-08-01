@@ -11,7 +11,7 @@ namespace cashFlow.Application.UseCases.Expenses.Create;
 public class CreateExpenseUseCase(
     IExpensesWriteOnlyRepository expensesRepository, IUnitOfWork unitOfWork, IMapper mapper) : ICreateExpenseUseCase
 {
-    public async Task<ResponseCreatedExpenseJson>  Execute(RequestCreateExpenseJson request)
+    public async Task<ResponseCreatedExpenseJson>  Execute(RequestExpenseJson request)
     {
         Validate(request);
 
@@ -26,10 +26,10 @@ public class CreateExpenseUseCase(
 
 
     // auxiliary function to validate the request
-    private static void Validate(RequestCreateExpenseJson request)
+    private static void Validate(RequestExpenseJson request)
     {
         // using FluentValidation to validate the request
-        var validator = new CreateExpenseValidator();
+        var validator = new ExpenseValidator();
         var result = validator.Validate(request);
 
         if (result.IsValid) return;

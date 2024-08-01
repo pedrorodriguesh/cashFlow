@@ -8,13 +8,13 @@ using FluentAssertions;
 namespace Validators.Test.Expenses.Create;
 
 // unit tests
-public class CreateExpenseValidatorTests
+public class ExpenseValidatorTests
 {
     [Fact]
     public void Success()
     {
         //Arrange
-        var validator = new CreateExpenseValidator();
+        var validator = new ExpenseValidator();
         var request = RequestCreateExpenseJsonBuilder.Build();
         
         //Act
@@ -28,7 +28,7 @@ public class CreateExpenseValidatorTests
     public void Error_Title_Empty()
     {
         //Arrange
-        var validator = new CreateExpenseValidator();
+        var validator = new ExpenseValidator();
         var request = RequestCreateExpenseJsonBuilder.Build();
         request.Title = string.Empty;
         
@@ -45,7 +45,7 @@ public class CreateExpenseValidatorTests
     public void Error_Date_Future()
     {
         //Arrange
-        var validator = new CreateExpenseValidator();
+        var validator = new ExpenseValidator();
         var request = RequestCreateExpenseJsonBuilder.Build();
         request.Date = DateTime.UtcNow.AddDays(2);
         
@@ -62,7 +62,7 @@ public class CreateExpenseValidatorTests
     public void Error_Payment_Type_Invalid()
     {
         //Arrange
-        var validator = new CreateExpenseValidator();
+        var validator = new ExpenseValidator();
         var request = RequestCreateExpenseJsonBuilder.Build();
         request.PaymentType = (PaymentType)700;
         
@@ -83,7 +83,7 @@ public class CreateExpenseValidatorTests
     public void Error_Amount_Invalid(decimal amount)
     {
         //Arrange
-        var validator = new CreateExpenseValidator();
+        var validator = new ExpenseValidator();
         var request = RequestCreateExpenseJsonBuilder.Build();
         request.Amount = amount;
         
