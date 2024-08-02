@@ -10,7 +10,7 @@ namespace cashFlow.API.Filters;
 // This filter will catch every exception thrown in the application and return a response with the error
 public class ExceptionFilter : IExceptionFilter
 {
-    // main method
+    // main method.
     public void OnException(ExceptionContext context)
     {
         if (context.Exception is CashFlowException)
@@ -23,6 +23,10 @@ public class ExceptionFilter : IExceptionFilter
         }
     }
 
+    /// <summary>
+    /// Handle the exceptions treated by the application
+    /// </summary>
+    /// <param name="context"></param>
     private static void HandleProjectException(ExceptionContext context)
     {
         var cashFlowException = (CashFlowException)context.Exception;
