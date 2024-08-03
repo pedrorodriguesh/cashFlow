@@ -36,7 +36,7 @@ public class ExceptionFilter : IExceptionFilter
         context.Result = new ObjectResult(errorResponse);
     }
     
-    // generic error
+    // generic error message
     private static void ThrowUnknownError(ExceptionContext context)
     {
         var errorResponse = new ResponseErrorJson(ResourceErrorMessages.UNKNOWN_ERROR);
