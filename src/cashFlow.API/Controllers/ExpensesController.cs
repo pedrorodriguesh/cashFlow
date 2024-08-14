@@ -29,7 +29,7 @@ namespace cashFlow.API.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetAllExpenses([FromServices] IGetAllExpensesUseCase useCase)
+        public async Task<IActionResult> GetAllExpenses([FromServices] IGetAllExpensesUseCase useCase) // FromServices we receive the useCase from the dependency injection
         {
             var response = await useCase.Execute();
 
