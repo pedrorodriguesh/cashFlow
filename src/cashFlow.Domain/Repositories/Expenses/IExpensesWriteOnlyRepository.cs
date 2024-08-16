@@ -7,7 +7,7 @@ public interface IExpensesWriteOnlyRepository
     Task Create(Expense expense);
     
     /// <summary>
-    /// This function return TRUE if the deletion was successfully. Otherwise returns FALSE.
+    /// This function return TRUE if the deletion was successfully. Otherwise, returns FALSE.
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>

@@ -2,6 +2,7 @@ using cashFlow.Domain.Entities.Enums;
 
 namespace cashFlow.Domain.Entities;
 
+// Expense entitiy
 public class Expense
 {
     public long Id { get; set; }

@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace cashFlow.Infrastructure;
 
+// Dependency injection extension for infrastructure layer
 public static class DependencyInjectionExtension
 {
     public static void AddInfrastructure(this IServiceCollection servicesCollection, IConfiguration configuration)
