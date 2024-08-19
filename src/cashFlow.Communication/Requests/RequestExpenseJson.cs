@@ -3,6 +3,7 @@ using cashFlow.Communication.Enums;
 namespace cashFlow.Communication.Requests;
 
 // request class to create an expense
+// request class to create an expense
 public class RequestExpenseJson
 {
     public string Title { get; set; } = string.Empty;
